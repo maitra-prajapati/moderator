@@ -1,7 +1,0 @@
-{
-  "error": {
-    "code": "INVALID_STATE",
-    "message": "Cannot approve a draft.",
-    "details": null
-  }
-}
