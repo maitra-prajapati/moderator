@@ -8,7 +8,7 @@ from .schemas import knowledgedraft
 
 class knowledge_error(Exception):
     def __init__(self, status_code:int, code:str, message:str):
-        self.statuscode = status_code
+        self.status_code = status_code
         self.code = code
         self.message = message
         super().__init__(message)

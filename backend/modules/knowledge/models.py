@@ -30,7 +30,7 @@ class knowledge_version(Base):
     )
 
     version_no: Mapped[int] = mapped_column(Integer , nullable=False)
-    status: Mapped[str] = mapped_column(String[30], default="DRAFT", nullable=False)
+    status: Mapped[str] = mapped_column(String(30), default="DRAFT", nullable=False)
 
 
     payload: Mapped[dict] = mapped_column(JSON, nullable=False)

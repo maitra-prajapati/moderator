@@ -1,6 +1,5 @@
 # example of submission-create schema check while setting up fastapi server
 
-from backend.contracts.validate_v_1 import validate_json, print_validation_result
 from fastapi import FastAPI, HTTPException, Request
 from fastapi.exceptions import RequestValidationError
 from fastapi.responses import JSONResponse

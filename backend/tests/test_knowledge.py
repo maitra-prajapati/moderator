@@ -10,10 +10,10 @@ from fastapi.testclient import TestClient
 from sqlalchemy import select
 
 from backend.main.main import create_app
-from modules.knowledge.models import knowledge_version
-from modules.knowledge.seed import FLOWPILOT, seed
-from modules.knowledge.database import make_session_factory
-from contracts.validate_v_1 import validate_json
+from backend.modules.knowledge.models import knowledge_version
+from backend.modules.knowledge.seed import FLOWPILOT, seed
+from backend.modules.knowledge.database import make_session_factory
+from backend.contracts.validate_v_1 import validate_json
 
 
 
