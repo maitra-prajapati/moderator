@@ -1,0 +1,112 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://moderator.local/contracts/v1/analysis-finding.schema.json",
+  "title": "analysis-finding",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "finding_id",
+    "category",
+    "severity",
+    "evidence_status",
+    "span",
+    "rule_id",
+    "claim_id",
+    "source_id",
+    "knowledge_version_id",
+    "explanation",
+    "suggested_replacement",
+    "confidence_kind"
+  ],
+  "properties": {
+    "finding_id": {
+      "type": "string"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "terminology",
+        "restricted_phrase",
+        "claim_mismatch",
+        "unsupported_claim",
+        "tone"
+      ]
+    },
+    "severity": {
+      "type": "string",
+      "enum": [
+        "info",
+        "warning",
+        "blocker"
+      ]
+    },
+    "evidence_status": {
+      "type": "string",
+      "enum": [
+        "supported",
+        "contradicted",
+        "needs_verification",
+        "not_applicable"
+      ]
+    },
+    "span": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "start": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "end": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "quote": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "start",
+        "end",
+        "quote"
+      ]
+    },
+    "rule_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "claim_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "source_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "knowledge_version_id": {
+      "type": "string"
+    },
+    "explanation": {
+      "type": "string"
+    },
+    "suggested_replacement": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "confidence_kind": {
+      "type": "string",
+      "enum": [
+        "deterministic",
+        "ai_assisted"
+      ]
+    }
+  }
+}

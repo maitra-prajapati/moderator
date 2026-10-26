@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://moderator.local/contracts/v1/auth-login-request.schema.json",
+  "title": "auth-login-request",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "email",
+    "password"
+  ],
+  "properties": {
+    "email": {
+      "type": "string",
+      "format": "email"
+    },
+    "password": {
+      "type": "string"
+    }
+  }
+}

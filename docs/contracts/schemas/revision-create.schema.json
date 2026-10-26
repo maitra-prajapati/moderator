@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://moderator.local/contracts/v1/revision-create.schema.json",
+  "title": "revision-create",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "text"
+  ],
+  "properties": {
+    "text": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 10000
+    }
+  }
+}

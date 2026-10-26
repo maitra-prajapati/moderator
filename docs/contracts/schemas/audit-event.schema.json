@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://moderator.local/contracts/v1/audit-event.schema.json",
+  "title": "audit-event",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "event_id",
+    "event_type",
+    "occurred_at",
+    "actor_id",
+    "submission_id",
+    "revision_id",
+    "knowledge_version_id",
+    "metadata"
+  ],
+  "properties": {
+    "event_id": {
+      "type": "string"
+    },
+    "event_type": {
+      "type": "string",
+      "enum": [
+        "review.approved",
+        "review.rejected",
+        "review.changes_requested",
+        "review.override_approved",
+        "content.submitted",
+        "content.revised"
+      ]
+    },
+    "occurred_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "actor_id": {
+      "type": "string"
+    },
+    "submission_id": {
+      "type": "string"
+    },
+    "revision_id": {
+      "type": "string"
+    },
+    "knowledge_version_id": {
+      "type": "string"
+    },
+    "metadata": {
+      "type": "object",
+      "additionalProperties": true
+    }
+  }
+}

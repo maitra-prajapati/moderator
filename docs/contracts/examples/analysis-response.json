@@ -1,0 +1,25 @@
+{
+  "request_id": "req_001",
+  "submission_id": "sub_001",
+  "revision_id": "rev_001",
+  "findings": [
+    {
+      "finding_id": "find_001",
+      "category": "claim_mismatch",
+      "severity": "blocker",
+      "evidence_status": "contradicted",
+      "span": {
+        "start": 20,
+        "end": 37,
+        "quote": "30-day free trial"
+      },
+      "rule_id": null,
+      "claim_id": "claim_trial",
+      "source_id": "src_trial",
+      "knowledge_version_id": "kv_001",
+      "explanation": "The approved trial is 14 days, not 30 days.",
+      "suggested_replacement": "14-day free trial",
+      "confidence_kind": "deterministic"
+    }
+  ]
+}

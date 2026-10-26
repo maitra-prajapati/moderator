@@ -1,0 +1,92 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://moderator.local/contracts/v1/workflow-submission.schema.json",
+  "title": "workflow-submission",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "submission_id",
+    "brand_id",
+    "author_id",
+    "title",
+    "channel",
+    "state",
+    "current_revision_id",
+    "revision_no",
+    "knowledge_version_id",
+    "finding_counts",
+    "updated_at"
+  ],
+  "properties": {
+    "submission_id": {
+      "type": "string"
+    },
+    "brand_id": {
+      "type": "string"
+    },
+    "author_id": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string",
+      "maxLength": 200
+    },
+    "channel": {
+      "type": "string",
+      "enum": [
+        "linkedin",
+        "website",
+        "email"
+      ]
+    },
+    "state": {
+      "type": "string",
+      "enum": [
+        "DRAFT",
+        "ANALYZING",
+        "ANALYSIS_FAILED",
+        "REVIEW_REQUIRED",
+        "CHANGES_REQUESTED",
+        "APPROVED",
+        "REJECTED"
+      ]
+    },
+    "current_revision_id": {
+      "type": "string"
+    },
+    "revision_no": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "knowledge_version_id": {
+      "type": "string"
+    },
+    "finding_counts": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "info": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "warning": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "blocker": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "info",
+        "warning",
+        "blocker"
+      ]
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}

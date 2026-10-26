@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://moderator.local/contracts/v1/submission-create.schema.json",
+  "title": "submission-create",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "brand_id",
+    "title",
+    "channel",
+    "text"
+  ],
+  "properties": {
+    "brand_id": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 200
+    },
+    "channel": {
+      "type": "string",
+      "enum": [
+        "linkedin",
+        "website",
+        "email"
+      ]
+    },
+    "text": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 10000
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://moderator.local/contracts/v1/review-request.schema.json",
+  "title": "review-request",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "decision",
+    "comment"
+  ],
+  "properties": {
+    "decision": {
+      "type": "string",
+      "enum": [
+        "approve",
+        "request_changes",
+        "reject",
+        "override_approve"
+      ]
+    },
+    "comment": {
+      "type": "string"
+    }
+  }
+}

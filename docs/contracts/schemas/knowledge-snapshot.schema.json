@@ -1,0 +1,154 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://moderator.local/contracts/v1/knowledge-snapshot.schema.json",
+  "title": "knowledge-snapshot",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "brand_id",
+    "knowledge_version_id",
+    "version_no",
+    "activated_at",
+    "voice_traits",
+    "sources",
+    "rules",
+    "claims"
+  ],
+  "properties": {
+    "brand_id": {
+      "type": "string"
+    },
+    "knowledge_version_id": {
+      "type": "string"
+    },
+    "version_no": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "activated_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "voice_traits": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "excerpt": {
+            "type": "string"
+          },
+          "valid_until": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "title",
+          "excerpt",
+          "valid_until"
+        ]
+      }
+    },
+    "rules": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "terminology",
+              "restricted_phrase"
+            ]
+          },
+          "pattern": {
+            "type": "string"
+          },
+          "replacement": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "severity": {
+            "type": "string",
+            "enum": [
+              "info",
+              "warning",
+              "blocker"
+            ]
+          },
+          "source_id": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "type",
+          "pattern",
+          "replacement",
+          "severity",
+          "source_id"
+        ]
+      }
+    },
+    "claims": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "fact_key": {
+            "type": "string"
+          },
+          "value": {
+            "type": "integer"
+          },
+          "unit": {
+            "type": "string"
+          },
+          "approved_text": {
+            "type": "string"
+          },
+          "source_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "fact_key",
+          "value",
+          "unit",
+          "approved_text",
+          "source_id"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "event_id": "evt_001",
+  "event_type": "review.approved",
+  "occurred_at": "2026-10-25T00:00:00Z",
+  "actor_id": "user_reviewer",
+  "submission_id": "sub_001",
+  "revision_id": "rev_001",
+  "knowledge_version_id": "kv_001",
+  "metadata": {
+    "override": false
+  }
+}
