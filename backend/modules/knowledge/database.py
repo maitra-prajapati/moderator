@@ -6,6 +6,7 @@ from sqlalchemy.orm import sessionmaker
 
 
 from .models import Base
+from backend.modules.auth.models import User
 
 DEFAULT_DB_FILE = Path(__file__).resolve().parents[2] / "data" / "knowledge.sqlite"
 
