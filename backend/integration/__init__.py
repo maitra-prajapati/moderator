@@ -1,0 +1,1 @@
+"""M7 boundary: the only place where M1, M2 and M3 are composed."""

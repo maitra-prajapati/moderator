@@ -3,7 +3,7 @@
 import os
 
 from fastapi import FastAPI, HTTPException, Request
-
+from backend.integration.workflow_adapter import build_workflow_router
 from fastapi.exceptions import RequestValidationError
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
@@ -28,9 +28,9 @@ from backend.modules.knowledge.router import (
     create_router as create_knowledge_router,
 )
 
-
 def create_app(
     database_url: str | None = None,
+    workflow_database_url: str | None = None,
 ) -> FastAPI:
 
     # Fail startup if the JWT signing secret is missing.
@@ -143,19 +143,14 @@ def create_app(
         )
 
     # Register M2 authentication endpoints.
+
+    app.include_router(create_auth_router(session_factory, auth))
+    app.include_router(create_knowledge_router(session_factory, auth))
     app.include_router(
-        create_auth_router(
-            session_factory,
+        build_workflow_router(
             auth,
+            session_factory,
+            workflow_database_url,
         )
     )
-
-    # Register existing M1 endpoints with M2 protection.
-    app.include_router(
-        create_knowledge_router(
-            session_factory,
-            auth,
-        )
-    )
-
     return app

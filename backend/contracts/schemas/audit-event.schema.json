@@ -21,12 +21,19 @@
     "event_type": {
       "type": "string",
       "enum": [
+        "content.created",
+        "content.submitted",
+        "content.revised",
+        "content.analysis_completed",
+        "content.analysis_failed",
+        "content.analysis_retried",
+        "finding.acknowledge",
+        "finding.accept_suggestion",
+        "finding.dismiss",
         "review.approved",
         "review.rejected",
         "review.changes_requested",
-        "review.override_approved",
-        "content.submitted",
-        "content.revised"
+        "review.override_approved"
       ]
     },
     "occurred_at": {
@@ -43,7 +50,10 @@
       "type": "string"
     },
     "knowledge_version_id": {
-      "type": "string"
+      "type": [
+        "string",
+        "null"
+      ]
     },
     "metadata": {
       "type": "object",

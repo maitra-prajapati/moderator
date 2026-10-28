@@ -1,0 +1,1 @@
+"""Independent M3 workflow module (no imports of M1/M2/M4)."""
