@@ -2211,7 +2211,7 @@ function HistoryPage({
               ["Approved", metrics.approved],
               ["Awaiting review", metrics.reviewing],
               [
-                "Active blocker findings",
+                "Current-revision blocker findings",
                 metrics.blockers
               ]
             ] as const

@@ -1,0 +1,48 @@
+{
+  "schema_version": "1.0",
+  "data_label": "synthetic demonstration data",
+  "period": {
+    "start": "2026-10-01T00:00:00Z",
+    "end": "2026-11-01T00:00:00Z"
+  },
+  "submissions": [
+    {"submission_id":"sub_001","brand_id":"brand_flowpilot","author_id":"user_creator","state":"APPROVED","current_revision_id":"rev_002","updated_at":"2026-10-20T10:00:00Z","finding_counts":{"blocker":0}},
+    {"submission_id":"sub_002","brand_id":"brand_flowpilot","author_id":"user_creator","state":"REVIEW_REQUIRED","current_revision_id":"rev_003","updated_at":"2026-10-21T10:00:00Z","finding_counts":{"blocker":1}},
+    {"submission_id":"sub_003","brand_id":"brand_flowpilot","author_id":"user_creator","state":"CHANGES_REQUESTED","current_revision_id":"rev_005","updated_at":"2026-10-22T10:00:00Z","finding_counts":{"blocker":2}},
+    {"submission_id":"sub_004","brand_id":"brand_flowpilot","author_id":"user_creator","state":"APPROVED","current_revision_id":"rev_006","updated_at":"2026-10-23T10:00:00Z","finding_counts":{"blocker":1}},
+    {"submission_id":"sub_005","brand_id":"brand_flowpilot","author_id":"user_creator","state":"DRAFT","current_revision_id":"rev_007","updated_at":"2026-10-24T10:00:00Z","finding_counts":{"blocker":0}},
+    {"submission_id":"sub_006","brand_id":"brand_flowpilot","author_id":"user_creator","state":"REJECTED","current_revision_id":"rev_008","updated_at":"2026-10-25T10:00:00Z","finding_counts":{"blocker":0}},
+    {"submission_id":"sub_007","brand_id":"brand_flowpilot","author_id":"user_creator","state":"REVIEW_REQUIRED","current_revision_id":"rev_009","updated_at":"2026-10-26T10:00:00Z","finding_counts":{"blocker":1}},
+    {"submission_id":"sub_008","brand_id":"brand_flowpilot","author_id":"user_creator","state":"APPROVED","current_revision_id":"rev_010","updated_at":"2026-10-27T10:00:00Z","finding_counts":{"blocker":0}}
+  ],
+  "findings": [
+    {"finding_id":"find_01","submission_id":"sub_001","revision_id":"rev_001","category":"terminology","severity":"warning","recorded_at":"2026-10-19T09:00:00Z"},
+    {"finding_id":"find_02","submission_id":"sub_001","revision_id":"rev_002","category":"tone","severity":"info","recorded_at":"2026-10-20T09:00:00Z"},
+    {"finding_id":"find_03","submission_id":"sub_002","revision_id":"rev_003","category":"claim_mismatch","severity":"blocker","recorded_at":"2026-10-21T09:00:00Z"},
+    {"finding_id":"find_04","submission_id":"sub_002","revision_id":"rev_003","category":"terminology","severity":"warning","recorded_at":"2026-10-21T09:00:00Z"},
+    {"finding_id":"find_05","submission_id":"sub_003","revision_id":"rev_004","category":"restricted_phrase","severity":"blocker","recorded_at":"2026-10-21T09:00:00Z"},
+    {"finding_id":"find_06","submission_id":"sub_003","revision_id":"rev_005","category":"restricted_phrase","severity":"blocker","recorded_at":"2026-10-22T09:00:00Z"},
+    {"finding_id":"find_07","submission_id":"sub_003","revision_id":"rev_005","category":"claim_mismatch","severity":"blocker","recorded_at":"2026-10-22T09:00:00Z"},
+    {"finding_id":"find_08","submission_id":"sub_004","revision_id":"rev_006","category":"restricted_phrase","severity":"blocker","recorded_at":"2026-10-23T09:00:00Z"},
+    {"finding_id":"find_09","submission_id":"sub_006","revision_id":"rev_008","category":"unsupported_claim","severity":"warning","recorded_at":"2026-10-25T09:00:00Z"},
+    {"finding_id":"find_10","submission_id":"sub_007","revision_id":"rev_009","category":"claim_mismatch","severity":"blocker","recorded_at":"2026-10-26T09:00:00Z"},
+    {"finding_id":"find_11","submission_id":"sub_008","revision_id":"rev_010","category":"tone","severity":"info","recorded_at":"2026-10-27T09:00:00Z"},
+    {"finding_id":"find_03","submission_id":"sub_002","revision_id":"rev_003","category":"claim_mismatch","severity":"blocker","recorded_at":"2026-10-21T09:00:00Z"}
+  ],
+  "reviews": [
+    {"review_id":"review_01","submission_id":"sub_001","revision_id":"rev_002","decision":"approve","occurred_at":"2026-10-20T10:00:00Z"},
+    {"review_id":"review_02","submission_id":"sub_003","revision_id":"rev_005","decision":"request_changes","occurred_at":"2026-10-22T10:00:00Z"},
+    {"review_id":"review_03","submission_id":"sub_004","revision_id":"rev_006","decision":"override_approve","occurred_at":"2026-10-23T10:00:00Z"},
+    {"review_id":"review_04","submission_id":"sub_006","revision_id":"rev_008","decision":"reject","occurred_at":"2026-10-25T10:00:00Z"},
+    {"review_id":"review_05","submission_id":"sub_008","revision_id":"rev_010","decision":"approve","occurred_at":"2026-10-27T10:00:00Z"},
+    {"review_id":"review_03","submission_id":"sub_004","revision_id":"rev_006","decision":"override_approve","occurred_at":"2026-10-23T10:00:00Z"}
+  ],
+  "events": [
+    {"event_id":"evt_01","event_type":"review.approved","occurred_at":"2026-10-20T10:00:00Z","submission_id":"sub_001","revision_id":"rev_002","actor_id":"user_reviewer","metadata":{"override":false,"review_id":"review_01"}},
+    {"event_id":"evt_02","event_type":"review.request_changes","occurred_at":"2026-10-22T10:00:00Z","submission_id":"sub_003","revision_id":"rev_005","actor_id":"user_reviewer","metadata":{"review_id":"review_02"}},
+    {"event_id":"evt_03","event_type":"review.approved","occurred_at":"2026-10-23T10:00:00Z","submission_id":"sub_004","revision_id":"rev_006","actor_id":"user_admin","metadata":{"override":true,"review_id":"review_03","reason":"Synthetic documented exception"}},
+    {"event_id":"evt_04","event_type":"review.rejected","occurred_at":"2026-10-25T10:00:00Z","submission_id":"sub_006","revision_id":"rev_008","actor_id":"user_reviewer","metadata":{"review_id":"review_04"}},
+    {"event_id":"evt_05","event_type":"review.approved","occurred_at":"2026-10-27T10:00:00Z","submission_id":"sub_008","revision_id":"rev_010","actor_id":"user_reviewer","metadata":{"review_id":"review_05"}},
+    {"event_id":"evt_03","event_type":"review.approved","occurred_at":"2026-10-23T10:00:00Z","submission_id":"sub_004","revision_id":"rev_006","actor_id":"user_admin","metadata":{"override":true,"review_id":"review_03","reason":"Synthetic documented exception"}}
+  ]
+}
