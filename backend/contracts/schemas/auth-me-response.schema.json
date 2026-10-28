@@ -7,14 +7,17 @@
   "required": [
     "user_id",
     "email",
-    "role"
+    "role",
+    "is_active",
+    "permissions"
   ],
   "properties": {
     "user_id": {
       "type": "string"
     },
     "email": {
-      "type": "string"
+      "type": "string",
+      "format": "email"
     },
     "role": {
       "type": "string",
@@ -23,6 +26,37 @@
         "reviewer",
         "admin"
       ]
+    },
+    "is_active": {
+      "type": "boolean"
+    },
+    "permissions": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "can_create",
+        "can_review",
+        "can_approve",
+        "can_manage_knowledge",
+        "can_manage_users"
+      ],
+      "properties": {
+        "can_create": {
+          "type": "boolean"
+        },
+        "can_review": {
+          "type": "boolean"
+        },
+        "can_approve": {
+          "type": "boolean"
+        },
+        "can_manage_knowledge": {
+          "type": "boolean"
+        },
+        "can_manage_users": {
+          "type": "boolean"
+        }
+      }
     }
   }
 }

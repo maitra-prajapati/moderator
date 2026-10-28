@@ -1,0 +1,1 @@
+"""Moderator M2 authentication and permissions."""

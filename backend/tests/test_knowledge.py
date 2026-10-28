@@ -2,7 +2,13 @@
 
 """
 
+from backend.modules.auth.models import User
 
+from backend.modules.auth.security import (
+    hash_password,
+    create_access_token,
+    get_jwt_secret,
+)
 from copy import deepcopy
 from datetime import date, timedelta
 
@@ -16,14 +22,46 @@ from backend.modules.knowledge.database import make_session_factory
 from backend.contracts.validate_v_1 import validate_json
 
 
-
 def make_test_setup(tmp_path):
-    url = f"sqlite+pysqlite:///{tmp_path / 'knowledge-test.sqlite'}"
-    app = create_app(url)
-    factory = make_session_factory(url)
-    seed(factory)
-    return TestClient(app), factory
 
+    url = (
+        f"sqlite+pysqlite:///"
+        f"{tmp_path / 'knowledge-test.sqlite'}"
+    )
+
+    app = create_app(url)
+
+    factory = make_session_factory(url)
+
+    seed(factory)
+
+    with factory() as session:
+
+        admin = User(
+            email="m1-test-admin@example.com",
+            password_hash=hash_password(
+                "TestsOnlyPassword#123"
+            ),
+            role="admin",
+        )
+
+        session.add(admin)
+        session.commit()
+
+        admin_id = admin.id
+
+    client = TestClient(app)
+
+    token = create_access_token(
+        admin_id,
+        get_jwt_secret(),
+    )
+
+    client.headers.update({
+        "Authorization": f"Bearer {token}"
+    })
+
+    return client, factory
 
 def test_seed_active_snapshot_matches_contract(tmp_path):
     client, _ = make_test_setup(tmp_path)
