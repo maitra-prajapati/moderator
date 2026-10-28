@@ -202,7 +202,6 @@ These are **new capabilities**, not existing Round 2 features or visual-only cha
 2. **Multi-stage collaborative approval:** assign submissions to multiple named reviewers; support threaded, revision-linked comments and in-app notifications; enforce sequential approval rules and preserve each decision in the audit log.
 3. **Policy-change impact monitoring:** when an approved claim, rule, or source changes/expires, automatically identify and recheck impacted pending content; show before/after evidence, new blocker counts, and action-required alerts.
 
-The [updated Round 3 project PDF](./MODERATOR_Updated_Project_Round3.pdf) defines each addition's scope and acceptance checks. These features are **planned, not claimed as complete**.
 
 ## Responsible design and attribution
 
