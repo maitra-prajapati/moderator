@@ -915,13 +915,12 @@ export function createMockApi(): MockApi {
       );
 
       if (!f) {
-        error(
-          404,
-          "FINDING_NOT_FOUND",
-          "Finding not found."
-        );
-      }
-
+      throw new ApiError(
+        404,
+        "FINDING_NOT_FOUND",
+        "Finding not found."
+      );
+    }
       if (
         action === "accept_suggestion" &&
         !f.suggested_replacement
