@@ -22,7 +22,10 @@ import {
   createMockApi
 } from "./mock";
 
-export const MODE = "real";
+export const MODE: "real" | "mock" =
+  (import.meta.env.VITE_API_MODE as string) === "mock"
+    ? "mock"
+    : "real";
 
 const BASE =
   "https://moderator-eight-beta.vercel.app/api/v1";
