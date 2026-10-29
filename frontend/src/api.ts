@@ -22,15 +22,11 @@ import {
   createMockApi
 } from "./mock";
 
-export const MODE =
-  import.meta.env.VITE_API_MODE === "real"
-    ? "real"
-    : "mock";
+export const MODE = "real";
 
-const BASE = (
-  import.meta.env.VITE_API_BASE ||
-  "http://127.0.0.1:8000/api/v1"
-).replace(/\/$/, "");
+const BASE =
+  "https://moderator-eight-beta.vercel.app/api/v1";
+
 
 const path = (s: string) => encodeURIComponent(s);
 
