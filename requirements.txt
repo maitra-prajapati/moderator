@@ -1,0 +1,13 @@
+# MODERATOR M1-M7
+# FastAPI backend on Vercel + Supabase PostgreSQL
+
+fastapi>=0.115,<1
+pydantic>=2.6,<3
+sqlalchemy>=2.0,<3
+jsonschema>=4.21,<5
+
+argon2-cffi>=25.1.0,<26
+PyJWT>=2.10,<3
+email-validator>=2.2,<3
+
+psycopg[binary]>=3.2,<4
