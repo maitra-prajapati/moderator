@@ -600,15 +600,15 @@ export function createMockApi(): MockApi {
       }
 
       if (
-        !pending ||
-        pending.version !== version
-      ) {
-        error(
-          409,
-          "INVALID_TRANSITION",
-          "No draft version to activate."
-        );
-      }
+      !pending ||
+      pending.version !== version
+    ) {
+      throw new ApiError(
+        409,
+        "INVALID_TRANSITION",
+        "No draft version to activate."
+      );
+    }
 
       knowledge = {
         ...clone(pending.draft),
