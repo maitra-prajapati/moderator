@@ -535,12 +535,12 @@ export function createMockApi(): MockApi {
       );
 
       if (!other) {
-        error(
-          404,
-          "USER_NOT_FOUND",
-          "User not found."
-        );
-      }
+      throw new ApiError(
+        404,
+        "USER_NOT_FOUND",
+        "User not found."
+      );
+    }
 
       other.permissions = {
         ...other.permissions,
